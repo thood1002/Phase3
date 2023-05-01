@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title List of Tickets
+  body
+    h1 List of Tickets
+    table
+      thead
+        tr
+          th Ticket ID
+          th Subject
+          th Description
+      tbody
+        each ticket in tickets
+          tr
+            td #{ticket._id}
+            td #{ticket.subject}
+            td #{ticket.description}
+            td
+              form(action=`/ticket/delete/${ticket._id}`, method="post")
+                button(type="submit") Delete
+    form(action="/ticket", method="post")
+      input(type="text", name="subject")
+      br
+      input(type="text", name="description")
+      br
+      button(type="submit") Create Ticket

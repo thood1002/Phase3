@@ -1,0 +1,18 @@
+form(action=`/ticket/${ticket._id}`, method='PUT')
+  label(for='name') Name:
+  input(type='text', name='name', value=`${ticket.name}`, required)
+  label(for='email') Email:
+  input(type='email', name='email', value=`${ticket.email}`, required)
+  label(for='category') Category:
+  select(name='category', required)
+    option(value='General', selected=ticket.category === 'General') General
+    option(value='Billing', selected=ticket.category === 'Billing') Billing
+    option(value='Technical', selected=ticket.category === 'Technical') Technical
+  label(for='subject') Subject:
+  input(type='text', name='subject', value=`${ticket.subject}`, required)
+  label(for='description') Description:
+  textarea(name='description', required)= ticket.description
+  button(type='submit') Update Ticket
+form(action=`/ticket/${ticket._id}`, method='DELETE')
+  input(type='hidden', name='_method', value='DELETE')
+  button(type='submit', onclick='return confirm("Are you sure you want to delete this ticket?")') Delete Ticket

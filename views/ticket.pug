@@ -1,0 +1,37 @@
+block content
+  h1 Create a New Ticket
+  form(action='rest/ticket', method='POST')
+    div.form-group
+      label(for='id') ID
+      input#id.form-control(type='text', name='id')
+    div.form-group
+      label(for='title') Title
+      input#title.form-control(type='text', name='title')
+    div.form-group
+      label(for='description') Description
+      input#description.form-control(type='text', name='description')
+    div.form-group
+      label(for='category') Category
+      select#category.form-control(name='category')
+        option(value='General') General
+        option(value='Billing') Billing
+        option(value='Technical') Technical
+        option(value='Other') Other
+    div.form-group
+      label(for='priority') Priority
+      select#priority.form-control(name='priority')
+        option(value='Low') Low
+        option(value='Medium') Medium
+        option(value='High') High
+    div.form-group
+      label(for='status') Status
+      select#status.form-control(name='status')
+        option(value='New') New
+        option(value='Open') Open
+        option(value='Pending') Pending
+        option(value='Resolved') Resolved
+        option(value='Closed') Closed
+    div.form-group
+      label(for='tags') Tags
+      input#tags.form-control(type='text', name='tags')
+    button.btn.btn-primary(type='submit') Create Ticket
